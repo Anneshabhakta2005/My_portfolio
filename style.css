@@ -1,0 +1,672 @@
+/* Base Styles with Fade-In */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    animation: fadeIn 1.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Enhanced Blur Background with Floating Effect */
+.blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://wallpapercave.com/wp/wp9167352.jpg') center/cover no-repeat;
+    filter: blur(8px);
+    opacity: 0.3;
+    z-index: 0;
+    animation: subtleFloat 30s ease-in-out infinite alternate;
+}
+
+
+@keyframes subtleFloat {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.02); }
+    100% { transform: translateY(0) scale(1); }
+}
+
+/* Glass Card with Floating and Fade Effects */
+.glass-card {
+    background: rgba(123, 121, 121, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    animation: 
+        cardFloat 8s ease-in-out infinite,
+        fadeInUp 1.2s ease-out;
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px) rotate(0.5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    50% { transform: translateY(-10px) rotate(0.5deg); }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced Animated Buttons with Ripple and Floating */
+.animated-btn {
+    position: relative;
+    background: linear-gradient(45deg, #652ed3, #EC4899, #9F7AEA);
+    background-size: 200% 200%;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+    transition: all 0.5s ease;
+    z-index: 1;
+    animation: 
+        subtleFloat 3s ease-in-out infinite,
+        fadeIn 1s ease-out;
+}
+
+.animated-btn:hover {
+    animation: 
+        gradientShift 3s ease infinite,
+        floatHover 2s ease-in-out infinite;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+}
+
+/* Social Icons with Floating and Fade */
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(156, 39, 176, 0.3);
+    transition: all 0.5s ease;
+    animation: 
+        fadeIn 1s ease-out,
+        subtleFloat 4s ease-in-out infinite;
+    backdrop-filter: blur(2px);
+}
+
+.social-icon:hover {
+    background: rgba(156, 39, 176, 0.7);
+    transform: translateY(-5px) scale(1.1);
+    animation: 
+        floatHover 1.5s ease-in-out infinite,
+        pulse 1.5s ease infinite;
+}
+
+/* Enhanced Skill Tags with More Effects */
+.skill-tag {
+    display: inline-block;
+    background: rgba(236, 72, 153, 0.2);
+    color: #fbcfe8;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    border: 1px solid rgba(236, 72, 153, 0.4);
+    position: relative;
+    animation: 
+        float 3s ease-in-out infinite,
+        pulse 2s ease-in-out infinite,
+        colorShift 5s linear infinite,
+        fadeIn 0.8s ease-out;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.3);
+    transition: all 0.5s ease;
+    backdrop-filter: blur(2px);
+}
+
+.skill-tag:hover {
+    animation: 
+        floatHover 1.2s ease-in-out infinite,
+        pulseFast 0.8s ease-in-out infinite,
+        colorShift 3s linear infinite;
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+/* Timeline with Fade-In Effects */
+.timeline-item {
+    border-left: 2px solid #ec4899;
+    margin-left: 1rem;
+    padding-left: 2rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.timeline-dot {
+    left: -0.5rem;
+    animation: pulse 2s ease infinite;
+}
+
+/* Social Links with Floating */
+.social-link {
+    display: flex;
+    align-items: center;
+    color: #fbcfe8;
+    padding: 0.75rem 1.5rem;
+    background: rgba(109, 40, 217, 0.3);
+    border-radius: 9999px;
+    transition: all 0.5s ease;
+    animation: fadeInUp 1s ease-out;
+    backdrop-filter: blur(2px);
+}
+
+.social-link:hover {
+    background: rgba(109, 40, 217, 0.6);
+    color: rgb(218, 157, 157);
+    transform: translateX(5px) translateY(-3px);
+    animation: floatHover 2s ease-in-out infinite;
+}
+
+/* Project Cards with Floating and Fade */
+.project-card {
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-out;
+    backdrop-filter: blur(2px);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    animation: floatHover 3s ease-in-out infinite;
+    backdrop-filter: blur(4px);
+}
+
+.project-card.tilt-effect {
+    transition: transform 0.1s ease-out;
+}
+
+.tech-tag {
+    display: inline-block;
+    background: rgba(236, 72, 153, 0.2);
+    color: #fbcfe8;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    border: 1px solid rgba(236, 72, 153, 0.4);
+    animation: fadeIn 1s ease-out;
+}
+.project-background{
+    background-color: #EC4899;
+}
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    color: #d8b4fe;
+    padding: 0.5rem 1rem;
+    background: rgba(33, 6, 76, 0.2);
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    transition: all 0.5s ease;
+    animation: fadeIn 1.2s ease-out;
+}
+
+.project-link:hover {
+    background: rgba(109, 40, 217, 0.4);
+    color: white;
+    transform: translateY(-3px) scale(1.05);
+    animation: floatHover 1.5s ease-in-out infinite;
+}
+
+/* Responsive Adjustments with Fade */
+@media (max-width: 768px) {
+    .glass-card {
+        grid-template-columns: 1fr !important;
+        animation: fadeInUp 1s ease-out;
+    }
+    
+    .bio-box {
+        margin-bottom: 1.5rem;
+        animation: fadeInUp 1s ease-out;
+    }
+}
+
+/* New Floating Animation */
+@keyframes floatHover {
+    0%, 100% { transform: translateY(-5px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Enhanced Pulse Animation */
+@keyframes pulse {
+    0%, 100% { 
+        transform: scale(1);
+        box-shadow: 0 0 0 rgba(236, 72, 153, 0.4);
+    }
+    50% { 
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(236, 72, 153, 0.6);
+    }
+}
+
+/* Fade Out Animation (can be triggered with JavaScript) */
+.fade-out {
+    animation: fadeOut 0.8s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+/* Extended Loading Page Styles */
+/* Loading Page - Fixed Version */
+.loading-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 1.5s ease-out;
+}
+
+/* Main content should be initially hidden */
+.main-content {
+    opacity: 0;
+    display: none;
+}
+
+/* When loading is complete */
+.loading-complete .main-content {
+    opacity: 1;
+    display: block;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.loading-page.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Rest of your loading animations... */
+
+.loading-logo {
+    font-size: 3rem; /* Slightly larger */
+    font-weight: 700;
+    color: white;
+    margin-bottom: 3rem; /* More spacing */
+    background: linear-gradient(90deg, #9F7AEA, #EC4899, #9F7AEA);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: 
+        gradientShift 5s linear infinite, /* Slower gradient shift */
+        subtleFloat 4s ease-in-out infinite; /* Slower float */
+}
+
+.loading-bar-container {
+    width: 350px; /* Wider bar */
+    height: 6px; /* Thicker bar */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 3rem;
+}
+
+.loading-bar {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #9F7AEA, #EC4899);
+    border-radius: 3px;
+    animation: loadingBar 4s ease-in-out infinite; /* Slower loading bar */
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.dot {
+    width: 16px; /* Larger dots */
+    height: 16px;
+    margin: 0 8px;
+    border-radius: 50%;
+    background-color: #9F7AEA;
+    animation: bounce 2.5s infinite ease-in-out; /* Slower bounce */
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.3s; } /* Longer delay */
+.dot:nth-child(3) { animation-delay: 0.6s; }
+
+/* Updated Animations with Longer Durations */
+@keyframes loadingBar {
+    0% { width: 0; left: 0; }
+    50% { width: 100%; left: 0; }
+    100% { width: 0; left: 100%; }
+}
+
+@keyframes bounce {
+    0%, 100% { 
+        transform: translateY(0); 
+        background-color: #9F7AEA;
+    }
+    50% { 
+        transform: translateY(-25px); /* Higher bounce */
+        background-color: #EC4899;
+    }
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% center; }
+    100% { background-position: 200% center; }
+}
+
+@keyframes subtleFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); } /* More pronounced float */
+}
+/* Typewriter Styles */
+.typewriter-container {
+    min-height: 1.5em; /* Prevent layout shift */
+    border-right: 2px solid #422c6d;
+    display: inline-block;
+    padding-right: 4px;
+    animation: 
+      blink-caret 0.75s step-end infinite,
+      text-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #9F7AEA; }
+  }
+  
+  @keyframes text-pulse {
+    0% { opacity: 0.9; }
+    50% { opacity: 1; text-shadow: 0 0 8px rgba(159, 122, 234, 0.6); }
+    100% { opacity: 0.9; }
+  }
+  
+  .heading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  /* Grid Overlay Styles */
+.grid-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    linear-gradient(rgba(32, 7, 7, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(18, 2, 2, 0.3) 1px, transparent 1px);
+  background-size: 40px 40px; /* Adjust grid size */
+  z-index: 0; /* Between background and content */
+  pointer-events: none; /* Allows clicks to pass through */
+  opacity: 0.15; /* Adjust grid visibility */
+}
+
+/* Adjust z-indexes to layer properly */
+.video-background {
+  z-index: -2; /* Behind grid */
+}
+
+.pc {
+  z-index: 1; /* Above grid */
+}
+
+/* Enhanced Audio Player Styles */
+.audio-player {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    padding: 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-out;
+    transition: all 0.5s ease;
+}
+
+.audio-player:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);
+}
+
+.audio-player audio {
+    display: none;
+}
+
+.audio-player .play-button {
+    background: linear-gradient(45deg, #652ed3, #EC4899, #9F7AEA);
+    background-size: 200% 200%;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 20px;
+    transition: all 0.3s ease;
+    animation: gradientShift 3s ease infinite;
+    box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+}
+
+.audio-player .play-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 25px rgba(156, 39, 176, 0.6);
+}
+
+.audio-player.playing .play-button {
+    background: linear-gradient(45deg, #EC4899, #9F7AEA, #652ed3);
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+/* Audio Player Animation */
+@keyframes audioGlow {
+    0% { box-shadow: 0 0 10px rgba(156, 39, 176, 0.4); }
+    50% { box-shadow: 0 0 20px rgba(236, 72, 153, 0.6); }
+    100% { box-shadow: 0 0 10px rgba(156, 39, 176, 0.4); }
+}
+
+.audio-player.playing {
+    animation: audioGlow 2s infinite;
+}
+
+/* Sound Wave Animation */
+.sound-wave {
+    display: none;
+    gap: 3px;
+    height: 20px;
+    position: absolute;
+    left: -30px;
+}
+
+.audio-player.playing .sound-wave {
+    display: flex;
+}
+
+.sound-wave span {
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(45deg, #652ed3, #EC4899);
+    border-radius: 3px;
+    animation: soundWave 1s ease infinite;
+}
+
+.sound-wave span:nth-child(2) { animation-delay: 0.2s; }
+.sound-wave span:nth-child(3) { animation-delay: 0.4s; }
+.sound-wave span:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes soundWave {
+    0%, 100% { height: 10px; }
+    50% { height: 20px; }
+}
+
+/* Beautiful Name Title Animation */
+.name-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 5.5rem;
+    font-weight: 800;
+    text-align: center;
+    background: linear-gradient(
+        300deg,
+        #ff0080,
+        #ff8c00,
+        #40e0d0,
+        #7b68ee,
+        #ff0080
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    text-transform: capitalize;
+    letter-spacing: 3px;
+    animation: 
+        gradientName 8s ease infinite,
+        floatName 3s ease-in-out infinite;
+    margin: 2rem 0;
+}
+
+/* Glowing text effect */
+.name-title::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        45deg,
+        #ff0080,
+        #ff8c00,
+        #40e0d0,
+        #7b68ee
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: blur(24px);
+    opacity: 0.7;
+    animation: gradientName 8s ease infinite;
+}
+
+/* Shimmering overlay */
+.name-title::after {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(
+        225deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    filter: blur(5px);
+    opacity: 0;
+    animation: shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+}
+
+/* Name animations */
+@keyframes gradientName {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes floatName {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        text-shadow: 
+            0 0 10px rgba(255, 0, 128, 0.3),
+            0 0 20px rgba(255, 140, 0, 0.2),
+            0 0 30px rgba(64, 224, 208, 0.1);
+    }
+    50% {
+        transform: translateY(-10px) scale(1.01);
+        text-shadow: 
+            0 0 20px rgba(255, 0, 128, 0.4),
+            0 0 30px rgba(255, 140, 0, 0.3),
+            0 0 40px rgba(64, 224, 208, 0.2);
+    }
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        opacity: 0;
+        transform: translateX(-100%) skewX(-15deg);
+    }
+    50% {
+        opacity: 0.4;
+        transform: translateX(100%) skewX(-15deg);
+    }
+}
+
+/* Responsive adjustments for name */
+@media (max-width: 768px) {
+    .name-title {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name-title {
+        font-size: 2.5rem;
+        letter-spacing: 1px;
+    }
+}

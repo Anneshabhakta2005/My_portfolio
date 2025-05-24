@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><i>Annesha Bhakta | Portfolio</i></title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background: url('windy-forest.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+        /* Fallback if GIF doesn't load */
+        @supports not (background: url('./assets/your-background.gif')) {
+            body {
+                background: linear-gradient(to bottom right, #454447, #403f41);
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <div class="blur-background"></div>
+    <!-- Grid Overlay -->
+    <div class="grid-overlay"></div>
+    <main class="container mx-auto px-4 py-12 relative z-10">
+        <div class="glass-card max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+            <div class="grid md:grid-cols-2">
+                <!-- Left Column - Profile -->
+                <div class="bg-800 p-8 flex flex-col items-center justify-center text-center">
+                    <img src="profile2.jpg" alt="Annesha Bhakta" class="w-48 h-48 rounded-full border-4 border-black-300 object-cover mb-6 shadow-lg">
+                    <div class="heading-container">
+                        <h1 class="text-4xl font-bold text-pink-200 mb-2">Annesha Bhakta</h1>
+                        <div class="typewriter-container text-xl text-purple-300 mt-2" id="typewriter"></div>
+                      </div>
+                    <p class="text-200-mb-6">BTech CSE Student | Frontend Developer</p>
+                    
+                    <div class="bio-box bg-blue-900 bg-opacity-30 p-4 rounded-lg mb-8">
+                        <p class="text-pink-100 italic">
+                            "A passionate coder with a creative soul. When I'm not crafting beautiful interfaces, 
+                            you'll find me strumming my guitar or exploring the world of blockchain technology. 
+                            Forever a learner, currently on the journey from frontend to full-stack mastery."
+                        </p>
+                    </div>
+                    
+                    <div class="flex space-x-4">
+                        <a href="https://linkedin.com/in/annesha-bhakta-17b236313/" class="social-icon">
+                            <i class="fab fa-linkedin text-2xl text-pink-300 hover:text-white transition"></i>
+                        </a>
+                        <a href="https://github.com/anneshabhakta2005" class="social-icon">
+                            <i class="fab fa-github text-2xl text-pink-300 hover:text-white transition"></i>
+                        </a>
+                        
+                        <a href="mailto:your.email@example.com" class="social-icon">
+                            <i class="fas fa-envelope text-2xl text-pink-300 hover:text-white transition"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Background Image with Buttons -->
+                <div class="bg-cover bg-center" style="background-image: url('./assets/images/laptop-bg.jpg');">
+                    <div class="bg-black bg-opacity-50 h-full flex items-center justify-center p-8">
+                        <div class="text-center">
+                            <h2 class="text-3xl font-bold text-pink-200 mb-8">Explore My World</h2>
+                            
+                            <div class="space-y-6">
+                                <a href="about.html" class="animated-btn block w-full py-3 px-6 rounded-full text-lg font-semibold transition-all duration-500">
+                                    About Me
+                                </a>
+                                
+                                <a href="education.html" class="animated-btn block w-full py-3 px-6 rounded-full text-lg font-semibold transition-all duration-500">
+                                    Education
+                                </a>
+                                
+                                <a href="contact.html" class="animated-btn block w-full py-3 px-6 rounded-full text-lg font-semibold transition-all duration-500">
+                                    Contact Me
+                                </a>
+                                <a href="projects.html" class="animated-btn block w-full py-3 px-6 rounded-full text-lg font-semibold transition-all duration-500">
+                                    <i class="fab fa-github mr-2"></i> My Projects
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <body>
+        <!-- Loading Page -->
+        <div class="loading-page" id="loadingPage">
+            <div class="loading-logo">Annesha</div>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+            <div class="loading-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+    
+        <!-- Main Content (wrap all your existing content in this div) -->
+        <div class="main-content" id="mainContent">
+            <!-- All your existing website content goes here -->
+        </div>
+        <footer>
+      <p><i><b>By Annesha.</b></i></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

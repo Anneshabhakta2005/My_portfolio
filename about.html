@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me | Annesha Bhakta</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     <style>
+        body {
+            background: url('./assets/windy-forest.gif') no-repeat center center fixed;
+            background-size: cover;
+        }
+        /* Fallback if GIF doesn't load */
+        @supports not (background: url('./assets/your-background.gif')) {
+            body {
+                background: linear-gradient(to bottom right, #454447, #403f41);
+            }
+        }
+    </style>
+</head>
+    
+    <main class="container mx-auto px-4 py-12 relative z-10">
+        <div class="glass-card max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl">
+            <div class="grid md:grid-cols-2">
+                <!-- Left Column - Image -->
+                <div class="bg-cover bg-center" style="background-image: url('img.jpg');">
+                    <div class="bg-black bg-opacity-50 h-full flex items-center justify-center p-8">
+                        
+                    </div>
+                </div>
+                
+                <!-- Right Column - About Content -->
+                <div class="bg-800 p-8">
+                    <h1 class="text-3xl font-bold text-pink-200 mb-6">About Me</h1>
+                    
+                    <div class="space-y-6 text-purple-100">
+                        <div class="bg-purple-900 bg-opacity-70 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold text-pink-300 mb-2">Who I Am</h3>
+                            <p>
+                                I'm Annesha Bhakta, a passionate BTech Computer Science student at TMSL with a 
+                                strong foundation in frontend development and aspirations to become a Full Stack 
+                                Developer. My curiosity extends to blockchain technology, which I'm eager to explore.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-purple-900 bg-opacity-70 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold text-pink-300 mb-2">My Hobbies</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Playing guitar and singing to express my creativity</li>
+                                <li>Coding personal projects to solve real-world problems</li>
+                                <li>Learning new technologies and programming languages</li>
+                                <li>Exploring the fascinating world of blockchain</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-purple-900 bg-opacity-70 p-4 rounded-lg">
+                            <h3 class="text-xl font-semibold text-pink-300 mb-2">My Skills</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-tag">HTML/CSS</span>
+                                <span class="skill-tag">JavaScript</span>
+                                <span class="skill-tag">Tailwind CSS</span>
+                                <span class="skill-tag">C Programming</span>
+                                <span class="skill-tag">Python</span>
+                                <span class="skill-tag">Frontend Development</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="index.html" class="mt-8 inline-block animated-btn py-2 px-6 rounded-full text-lg font-semibold transition-all duration-500">
+                        Back to Home
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
