@@ -234,6 +234,7 @@ function createAudioPlayer() {
     const audio = document.createElement('audio');
     audio.src = 'music.mp3';
     audio.loop = true;
+    audio.preload = 'auto'; // Preload the audio
     
     // Create play button with gradient background
     const playButton = document.createElement('button');
@@ -248,27 +249,36 @@ function createAudioPlayer() {
         soundWave.appendChild(span);
     }
     
-    // Add click handler
+    let isPlaying = false;
+    
+    // Add click handler with improved state management
     playButton.addEventListener('click', () => {
-        if (audio.paused) {
-            audio.play();
-            playButton.innerHTML = '⏸';
-            audioPlayer.classList.add('playing');
+        if (!isPlaying) {
+            audio.play().then(() => {
+                isPlaying = true;
+                playButton.innerHTML = '⏸';
+                audioPlayer.classList.add('playing');
+                fadeInVolume(audio);
+            }).catch((error) => {
+                console.error('Error playing audio:', error);
+            });
         } else {
-            audio.pause();
-            playButton.innerHTML = '▶';
-            audioPlayer.classList.remove('playing');
+            fadeOutVolume(audio).then(() => {
+                audio.pause();
+                isPlaying = false;
+                playButton.innerHTML = '▶';
+                audioPlayer.classList.remove('playing');
+            });
         }
     });
     
-    // Add volume fade in/out
-    audio.addEventListener('play', () => {
-        audio.volume = 0;
-        fadeInVolume(audio);
-    });
-    
-    audio.addEventListener('pause', () => {
-        fadeOutVolume(audio);
+    // Handle audio ended event
+    audio.addEventListener('ended', () => {
+        if (!audio.loop) {
+            isPlaying = false;
+            playButton.innerHTML = '▶';
+            audioPlayer.classList.remove('playing');
+        }
     });
     
     audioPlayer.appendChild(soundWave);
@@ -277,32 +287,39 @@ function createAudioPlayer() {
     document.body.appendChild(audioPlayer);
 }
 
-// Volume fade functions
+// Improved volume fade functions with Promises
 function fadeInVolume(audio) {
-    let volume = 0;
-    const fadeInterval = setInterval(() => {
-        if (volume < 1) {
-            volume += 0.1;
-            audio.volume = volume;
-        } else {
-            clearInterval(fadeInterval);
-        }
-    }, 100);
+    return new Promise((resolve) => {
+        audio.volume = 0;
+        let volume = 0;
+        const fadeInterval = setInterval(() => {
+            if (volume < 0.8) { // Max volume of 0.8 for better user experience
+                volume += 0.1;
+                audio.volume = volume;
+            } else {
+                clearInterval(fadeInterval);
+                resolve();
+            }
+        }, 100);
+    });
 }
 
 function fadeOutVolume(audio) {
-    let volume = audio.volume;
-    const fadeInterval = setInterval(() => {
-        if (volume > 0) {
-            volume -= 0.1;
-            audio.volume = volume;
-        } else {
-            clearInterval(fadeInterval);
-        }
-    }, 50);
+    return new Promise((resolve) => {
+        let volume = audio.volume;
+        const fadeInterval = setInterval(() => {
+            if (volume > 0) {
+                volume -= 0.1;
+                audio.volume = Math.max(0, volume);
+            } else {
+                clearInterval(fadeInterval);
+                resolve();
+            }
+        }, 50);
+    });
 }
 
-// Handle audio autoplay restrictions
+// Handle audio autoplay restrictions with improved error handling
 document.addEventListener('click', () => {
     const audio = document.querySelector('.audio-player audio');
     const audioPlayer = document.querySelector('.audio-player');
@@ -312,8 +329,11 @@ document.addEventListener('click', () => {
         audio.play().then(() => {
             playButton.innerHTML = '⏸';
             audioPlayer.classList.add('playing');
-        }).catch(() => {
-            console.log('Autoplay prevented. User interaction required.');
+            fadeInVolume(audio);
+        }).catch((error) => {
+            console.error('Autoplay prevented:', error);
+            playButton.innerHTML = '▶';
+            audioPlayer.classList.remove('playing');
         });
     }
 });
